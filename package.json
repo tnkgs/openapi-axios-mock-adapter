@@ -1,6 +1,6 @@
 {
   "name": "openapi-axios-mock-adapter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "for axios-mock-adapter",
   "main": "lib/index.js",
   "repository": "https://github.com/tnkgs/openapi-axios-mock-adapter.git",
@@ -50,7 +50,8 @@
   "dependencies": {
     "@apidevtools/swagger-parser": "^9.0.1",
     "openapi-sampler": "^1.0.0-beta.15",
-    "tosource": "^1.0.0"
+    "tosource": "^1.0.0",
+    "yargs": "^15.3.1"
   },
   "peerDependencies": {
     "axios": "^0.19.2",

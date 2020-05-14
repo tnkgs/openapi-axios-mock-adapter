@@ -45,7 +45,11 @@ const templateMock = (
   return `  mock.on${upperMethod}('${path}').reply(${statusCode},\n    ${body},\n  );\n`;
 };
 
-const generateAxiosMockAdapter = (schemaFile: string, output: string) => {
+const generateAxiosMockAdapter = (
+  schemaFile: string,
+  output: string,
+  host?: string,
+) => {
   parser.dereference(schemaFile, (err, api) => {
     if (err) {
       console.error(err);
@@ -66,7 +70,12 @@ const generateAxiosMockAdapter = (schemaFile: string, output: string) => {
             const response = parseResponse(pathMethod.responses);
             if (response) {
               mocks.push(
-                templateMock(method, pathKey, response[0], response[1]),
+                templateMock(
+                  method,
+                  (host || '') + pathKey,
+                  response[0],
+                  response[1],
+                ),
               );
             }
           }

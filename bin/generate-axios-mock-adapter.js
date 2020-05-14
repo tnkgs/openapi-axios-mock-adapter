@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 
-if (process.argv.length !== 4) {
-  console.log('usage: generate-axios-mock-adapter {schemaPath} {outputPath}');
-} else {
-  const generateAxiosMockAdapter = require('../lib').default;
+const argv = require('yargs')
+  .usage('Usage: $0 -i schema.yaml -o output.ts -h http://localhost')
+  .string(['i', 'o', 'h'])
+  .alias('i', 'input')
+  .alias('o', 'output')
+  .alias('h', 'host')
+  .demandOption(['i', 'o'])
+  .help().argv;
 
-  generateAxiosMockAdapter(process.argv[2], process.argv[3]);
-}
+const generateAxiosMockAdapter = require('../lib').default;
+
+generateAxiosMockAdapter(argv.i, argv.o, argv.h);
