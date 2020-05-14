@@ -1,6 +1,6 @@
 {
   "name": "openapi-axios-mock-adapter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "for axios-mock-adapter",
   "main": "lib/index.js",
   "repository": "https://github.com/tnkgs/openapi-axios-mock-adapter.git",
@@ -26,6 +26,7 @@
     "generate-axios-mock-adapter": "bin/generate-axios-mock-adapter.js"
   },
   "scripts": {
+    "prepublish": "tsc",
     "build": "tsc",
     "clean": "rimraf lib"
   },
